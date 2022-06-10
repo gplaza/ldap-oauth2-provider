@@ -3,9 +3,8 @@ class LDAP_Client
 
   def authenticate(params)
     ldap = Net::LDAP.new
-    ldap.encryption(:simple_tls)
     ldap.host = $ldap_settings['ldap_hostname']
-    ldap.port = 636
+    ldap.port = 389
     ldap.auth $ldap_settings['ldap_username'], $ldap_settings['ldap_password']
 
     login_data = build_login_data(params['username'])
@@ -49,9 +48,8 @@ class LDAP_Client
     data = {}
 
     ldap = Net::LDAP.new
-    ldap.encryption(:simple_tls)
     ldap.host = $ldap_settings['ldap_hostname']
-    ldap.port = 636
+    ldap.port = 389
     ldap.auth $ldap_settings['ldap_username'], $ldap_settings['ldap_password']
 
     login_data = build_login_data(params['username'])
