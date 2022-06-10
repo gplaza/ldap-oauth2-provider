@@ -18,3 +18,4 @@
 :memory
 /config/puma.rb.bu
 *.swp
+Gemfile.lock
